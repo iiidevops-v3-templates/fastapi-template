@@ -1,0 +1,4 @@
+include:
+  - project: "$IIIDEVOPS_TEMPLATE/shared-ci-configs"
+    ref: main
+    file: '/templates/init.gitlab-ci.yml'

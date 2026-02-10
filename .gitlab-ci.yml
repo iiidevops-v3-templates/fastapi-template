@@ -1,0 +1,12 @@
+include:
+  - local: iiidevops/jobs/*.yml
+  - local: .jobs/*.yml
+  - project: "$IIIDEVOPS_TEMPLATE/shared-ci-configs"
+    ref: main
+    file: '/stages.gitlab-ci.yml'
+
+workflow:
+  rules:
+    - if: $GITLAB_USER_LOGIN == "root"  # Don't run pipeline for root user
+      when: never
+    - when: always # Always run pipeline for other cases
